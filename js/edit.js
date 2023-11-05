@@ -266,6 +266,8 @@ function save() {
     }
   }
 
+  // console.log(content.innerHTML);
+
   var name=prompt("Enter the name of this template");
 
   var data = new FormData();
@@ -273,6 +275,6 @@ function save() {
   data.append("json" , JSON.stringify(json));
   data.append("name" , name);
   var xhr = (window.XMLHttpRequest) ? new XMLHttpRequest() : new activeXObject("Microsoft.XMLHTTP");
-  xhr.open( 'post', 'http://localhost:127001/lock/php/api.php', true );
+  xhr.open( 'post', 'http://localhost/lock/php/api.php', true );
   xhr.send(data);
 }
