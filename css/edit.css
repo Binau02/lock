@@ -8,12 +8,14 @@ body > * {
   flex-grow: 1;
 }
 
-#content {
+#elements {
   background-color: red;
 }
 
 #global-content {
   background-color: gray;
+  flex-grow: 2.5;
+  padding: 1em;
 }
 
 #content {
@@ -22,4 +24,14 @@ body > * {
 
 #style {
   background-color: blue;
+}
+
+.line {
+  display: flex;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.line > * {
+  flex-grow: 1;
 }
