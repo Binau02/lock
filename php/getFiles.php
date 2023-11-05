@@ -1,7 +1,7 @@
 <?php
 
 $data = scandir("../saves/Philippe/template");
-$data = range(2, count($data), 2);
+$data = range(2, count($data)-1, 2);
 
 
 
