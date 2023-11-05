@@ -186,8 +186,13 @@ function place(elem) {
   oldParent.removeChild(elem);
   // console.log(destination);
   if (elem.classList.contains("to-add")) {
+    if (destination[0] == "replace") {
+      elem.remove();
+      return;
+    }
     elem.classList.remove("to-add")
     elem.classList.add("editable")
+    updateJson("add", elem)
   }
   switch (destination[0]) {
     case "content":
@@ -231,6 +236,7 @@ function place(elem) {
       break;
     case "delete":
       elem.remove();
+      updateJson("remove", elem)
       break;
   }
   if (oldParent.children.length == 0) {
@@ -240,3 +246,12 @@ function place(elem) {
   elem.style.top = '0px'
 }
 
+var prevLeft = 0;
+$("#elements").scroll( function(evt) {
+    var currentLeft = $(this).scrollLeft();
+    if(prevLeft != currentLeft) {
+        prevLeft = currentLeft;
+        // console.log("I scrolled horizontally.");
+        document.getElementById("elements").scrollLeft -= 40;
+    }
+});
