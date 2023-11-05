@@ -32,6 +32,12 @@ body > * {
   align-content: stretch;
 }
 
-.line > * {
+/* .line > * {
   flex-grow: 1;
+} */
+
+.editable {
+  flex-grow: 1;
+  min-height: 3em;
+  border: solid 2px lightgray;
 }
