@@ -3,6 +3,7 @@
 // var_dump($_POST);
 
 $fname = $_POST["name"];
+$fname = $_GET["name"];
 $data = file_get_contents($fname);
 
 
