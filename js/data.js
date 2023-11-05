@@ -18,8 +18,8 @@ data = {
     "Mechanisms": [
       {
         "Name": {
-          "FR": "Cadenas",
-          "EN": "Lock"
+          "FR": "",
+          "EN": ""
         },
         "Quantity": 0,
         "Image": ""
