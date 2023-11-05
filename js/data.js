@@ -61,7 +61,7 @@ data = {
                     "FR": "",
                     "EN": ""
                   },
-                  "Quantity": 1,
+                  "Quantity": 0,
                   "Image": ""
                 }
               ],
