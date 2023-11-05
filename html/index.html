@@ -10,11 +10,12 @@
   </head>
 
   <body>
+    <input type="file" webkitdirectory="" directory="">
     <div class="container">
       <div id="existing-templates">
         <h1>Templates existants</h1>
         
-        <button type="button" onclick="show('pop-up1')">Template 1</button>
+        <button type="button" onclick="show('pop-up1')" class="button">Template 1</button>
         <div class="pop-up" id="pop-up1">
           <p>Template 1</p>
           <button type="button" onclick="window.location.href='edit.html';"> Editer le template</button>
@@ -22,7 +23,7 @@
           <a href="#" class="close" onclick="hide('pop-up1')">&times;</a>
         </div>
   
-        <button type="button" onclick="show('pop-up2')">Template 2</button>
+        <button type="button" onclick="show('pop-up2')" class="button">Template 2</button>
         <div class="pop-up" id="pop-up2">
           <p>Template 2</p>
           <button type="button" onclick="window.location.href='edit.html';"> Editer le template</button>
@@ -30,7 +31,7 @@
           <a href="#" class="close" onclick="hide('pop-up2')">&times;</a>
         </div>
       
-        <button type="button" onclick="show('pop-up3')">Template 3</button>
+        <button type="button" onclick="show('pop-up3')" class="button">Template 3</button>
         <div class="pop-up" id="pop-up3">
           <p>Template 3</p>
           <button type="button" onclick="window.location.href='edit.html';"> Editer le template</button>
@@ -41,11 +42,12 @@
   
       <div id="empty-template">
         <h1>Créer un nouveau modèle</h1>
-        <button type="button" onclick="window.location.href='edit.html';">Créer</button>
+        <button type="button" onclick="window.location.href='edit.html';" class="button">Créer</button>
       </div>
     </div>
     
-    <input type="file" webkitdirectory="" directory="">
+
+    
 
     
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
