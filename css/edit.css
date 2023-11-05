@@ -19,7 +19,7 @@ body > * {
 }
 
 #global-content {
-  background-color: lightgray;
+  background-color: rgb(233, 233, 233);
   flex-grow: 2.5;
   padding: 1em;
 }

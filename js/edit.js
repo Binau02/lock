@@ -17,27 +17,27 @@ document.addEventListener("keypress", (e) => {
 })
 
 
-line = document.createElement("div");
-line.className = "line"
-title = document.createElement("div");
-title.className = "editable Title"
-title.innerHTML = "Section titre"
-line.append(title)
-content.append(line)
+// line = document.createElement("div");
+// line.className = "line"
+// title = document.createElement("div");
+// title.className = "editable Title"
+// title.innerHTML = "Section titre"
+// line.append(title)
+// content.append(line)
 
-line = document.createElement("div");
-line.className = "line"
-machine = document.createElement("div")
-machine.className = "editable Machine"
-machine.innerHTML = "Section machine"
-line.append(machine)
-mechanism = document.createElement("div")
-mechanism.className = "editable Mechanism"
-mechanism.innerHTML = "Section mechanism"
-line.append(mechanism)
-content.append(line);
+// line = document.createElement("div");
+// line.className = "line"
+// machine = document.createElement("div")
+// machine.className = "editable Machine"
+// machine.innerHTML = "Section machine"
+// line.append(machine)
+// mechanism = document.createElement("div")
+// mechanism.className = "editable Mechanism"
+// mechanism.innerHTML = "Section mechanism"
+// line.append(mechanism)
+// content.append(line);
 
-startDrag()
+// startDrag()
 
 function startDrag(elem = null) {
   search = ".editable"
@@ -60,14 +60,6 @@ function startDrag(elem = null) {
       drag: function(event, ui) {
         destination = []
         elems = document.elementsFromPoint(event.pageX, event.pageY);
-        // console.log(elems);
-        // if (elems[0].id == "showing-rect") {
-        //   elem = elems[2];
-        // }
-        // else {
-        //   elem = elems[1]
-        // }
-        // console.log(elem);
         test = true
         let i = 0
         do {
@@ -80,6 +72,7 @@ function startDrag(elem = null) {
         // console.log(elem.classList.contains("line"));
         if (!elem.classList.contains("editable") && elem.id != "content") {
           showingRect.style.display = "none";
+          destination = ["delete"]
           return;
         }
         if (elem.id == "content") {
@@ -114,6 +107,7 @@ function startDrag(elem = null) {
       }
     });
   });
+  document.getElementById("temp_drag").id = ""
 }
 
 function stopDrag() {
@@ -190,7 +184,11 @@ function place(elem) {
   oldParent = elem.parentElement
   sibling = elem.nextElementSibling;
   oldParent.removeChild(elem);
-  console.log(destination);
+  // console.log(destination);
+  if (elem.classList.contains("to-add")) {
+    elem.classList.remove("to-add")
+    elem.classList.add("editable")
+  }
   switch (destination[0]) {
     case "content":
       line = document.createElement("div");
@@ -231,7 +229,9 @@ function place(elem) {
         sibling.before(base)
       }
       break;
-
+    case "delete":
+      elem.remove();
+      break;
   }
   if (oldParent.children.length == 0) {
     oldParent.remove();
