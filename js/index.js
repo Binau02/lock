@@ -114,3 +114,23 @@ var show = function(id) {
 var hide = function(id) {
     $(id).style.display ='none';
 }
+
+
+// let request =
+//   $.ajax({
+//     type : 'GET',
+//     url : 'http://localhost/lock/php/getFiles.php',
+//   });
+
+// request.done(function (output) {
+//   //Code à jouer en cas d'éxécution sans erreur du script du PHP
+//   console.log("test_ajax.js :");
+//   console.log(output);
+  
+// });
+// request.fail(function (error) {
+// //Code à jouer en cas d'éxécution en erreur du script du PHP ou de ressource introuvable
+// });
+// request.always(function () {
+//  //Code à jouer après done OU fail quoi qu'il arrive
+// });

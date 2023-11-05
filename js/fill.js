@@ -23,6 +23,7 @@ $.getJSON("http://localhost/lock/saves/Philippe/template/" + queue_url,
 //     console.log(data);
 //     createFormFromJSON(data);
 // });
+let dataCopy = 0;
 
 function createFormFromJSON(data){
     const form = $("#mainForm");
@@ -309,23 +310,28 @@ function createFormFromJSON(data){
     btn.click(function (e) { 
         var data1 = document.getElementById('mainForm');
         var data2 = data1.getElementsByTagName('input');
+        dataCopy = structuredClone(data);
         $.each(data2, function (indexInArray, valueOfElement) {
             let pathToInfo = getPathById(valueOfElement.id);
             console.log(valueOfElement.value);
             console.log(pathToInfo);
-            });
+            registerData(dataCopy, pathToInfo, valueOfElement.value);    
+        });
     });
     btn.append('Sauver');
     div.append(btn);
     form.append(div);
 }
 
+test = 0
 function registerData(object, path, value) {
     if (path.length == 1) {
         object[path[0]] = value;
         return;
     }
-    registerData(object[path[0]], path.shift(), value);
+    object = object[path[0]]
+    path.shift();
+    registerData(object, path, value);
 }
 
 function getPathById(id){
