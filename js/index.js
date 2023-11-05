@@ -1,17 +1,17 @@
-var directory = "../saves/Philippe";
-var xmlHttp = new XMLHttpRequest();
-xmlHttp.open('GET', directory, false); // false for synchronous request
-xmlHttp.send(null);
-var ret = xmlHttp.responseText;
-var fileList = ret.split('\n');
-for (i = 0; i < fileList.length; i++) {
-    var fileinfo = fileList[i].split(' ');
-    console.log(fileinfo)
-    // if (fileinfo[0] == '201:') {
-    //     document.write(fileinfo[1] + "<br>");
-    //     document.write('<img src="' + directory + fileinfo[1] + '"/>');
-    // }
-}
+// var directory = "../saves/Philippe";
+// var xmlHttp = new XMLHttpRequest();
+// xmlHttp.open('GET', directory, false); // false for synchronous request
+// xmlHttp.send(null);
+// var ret = xmlHttp.responseText;
+// var fileList = ret.split('\n');
+// for (i = 0; i < fileList.length; i++) {
+//     var fileinfo = fileList[i].split(' ');
+//     console.log(fileinfo)
+//     // if (fileinfo[0] == '201:') {
+//     //     document.write(fileinfo[1] + "<br>");
+//     //     document.write('<img src="' + directory + fileinfo[1] + '"/>');
+//     // }
+// }
 
 
 // function loadFileNames(dir) {
@@ -45,6 +45,14 @@ for (i = 0; i < fileList.length; i++) {
 //             alert('Files could not be loaded. please check console for details');
 //             console.error(error);
 //         });
+
+
+let i = document.querySelector('input').addEventListener('change', (e)=>{
+    for(let i = 0; i < e.target.files.length; i++)
+    {
+        console.log(e.target.files[i].name);
+    }
+})
 
 $ = function(id) {
     return document.getElementById(id);
