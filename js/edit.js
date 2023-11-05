@@ -69,14 +69,19 @@ function startDrag(elem = null) {
         // }
         // console.log(elem);
         test = true
-        i = 0
+        let i = 0
         do {
           elem = elems[i]
           if (elem.id != "showing-rect" && elem != event.target) {
             test = false
           }
+          i++
         } while(test);
-        console.log(elem);
+        // console.log(elem.classList.contains("line"));
+        if (!elem.classList.contains("editable") && elem.id != "content") {
+          showingRect.style.display = "none";
+          return;
+        }
         if (elem.id == "content") {
           destination = ["content"]
         }
