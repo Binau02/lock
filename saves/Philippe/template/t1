@@ -1,8 +1,13 @@
 <div class="line">
   <div path="General,Title">Section Title</div>
-  <div path=""
+</div>
+<div class="line">
+  <div path="Unit/Name">Section Name</div>
 </div>
 <div class="line">
   <div path="General,Title">Section Title</div>
   <div path="General,Title">Section Title</div>
+</div>
+<div class="line">
+  <div path="Machine/Name">Section Name</div>
 </div>

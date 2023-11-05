@@ -15,8 +15,11 @@ $.getJSON("http://localhost/lock/saves/Philippe/" + queue_url,
     }
 );
 let HTML = 0;
+let filename = queue_url.substring(0, queue_url.length-5);
+console.log(filename)
 $.get('http://localhost/lock/saves/Philippe/', function(data) {
-    do_something_with(data)
+    HTML = data;
+    console.log(HTML)
  });
 
 $.ajax({
