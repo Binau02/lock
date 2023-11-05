@@ -19,6 +19,14 @@
     text-align: center;
     z-index: 20;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius:7px;
+    border:1px solid #e5e5e5;
+}
+
+.pop-up h1 {
+    color: #6200ee;
+    font-weight: bold;
+    font-weight: 500;
 }
 
 .pop-up .close {
