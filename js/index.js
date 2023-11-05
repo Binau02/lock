@@ -51,7 +51,7 @@ let i = document.querySelector('input').addEventListener('change', (e)=>{
     f = []
     for(let i = 0; i < e.target.files.length; i++)
     {             
-        f.push(e.target.files[i].name);
+        f.push(e.target.files[i].webkitRelativePath);
     }
     console.log(f);
     printResults(f);
