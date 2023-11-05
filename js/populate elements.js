@@ -14,6 +14,7 @@ function createBlock(name, args, master) {
   div.innerHTML = "Section " + name
   div.setAttribute("master", master)
   div.setAttribute("selection", name)
+  div.setAttribute("path", master+','+name)
   createBlockArgs(div, args)
   content.append(div)
 }

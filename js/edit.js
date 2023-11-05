@@ -262,7 +262,7 @@ function save() {
       let elem = content.children[i].children[j]
       let k = 0;
       while(elem.attributes.length > 1) {
-        if (elem.attributes[0].name == "selection") {
+        if (elem.attributes[0].name == "path") {
           k = 1
         }
         elem.removeAttribute(elem.attributes[0+k].name);

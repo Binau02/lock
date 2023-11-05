@@ -1,16 +1,7 @@
 <div class="line">
-  <div selection="Title">Section Title</div>
+  <div path="General,Title">Section Title</div>
 </div>
 <div class="line">
-  <div selection="Title">Section Identifier</div>
-  <div selection="Name">Section Name</div>
-</div>
-<div class="line">
-  <div selection="Title">Section Identifier</div>
-</div>
-<div class="line">
-  <div selection="Name">Section Name</div>
-</div>
-<div class="line">
-  <div selection="Title">Section Location</div>
+  <div path="General,Title">Section Title</div>
+  <div path="General,Title">Section Title</div>
 </div>
