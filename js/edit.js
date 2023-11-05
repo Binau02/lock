@@ -260,8 +260,12 @@ function save() {
   for (let i = 0; i < content.children.length; i++) {
     for (let j = 0; j < content.children[i].children.length; j++) {
       let elem = content.children[i].children[j]
-      while(elem.attributes.length > 0) {
-        elem.removeAttribute(elem.attributes[0].name);
+      let k = 0;
+      while(elem.attributes.length > 1) {
+        if (elem.attributes[0].name == "selection") {
+          k = 1
+        }
+        elem.removeAttribute(elem.attributes[0+k].name);
       }
     }
   }
