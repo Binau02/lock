@@ -133,9 +133,10 @@ function createFormFromJSON(data){
                                 if (key3 == "Steps"){
                                     for (var key4 in data[key][key1][key2][key3]){
                                         for (var key5 in data[key][key1][key2][key3][key4]){
+                                            console.log(key5)
                                             if (key5 == "Device"){
                                                 const subSubDiv = $('<div>').attr({
-                                                    id: key + key2 + key3 + key4 + key5
+                                                    id: key + key1 +  key2 + key3 + key4 + key5
                                                 });
                                                 const subSubTitle = $('<h4>');
                                                 subSubTitle.append(key5);
@@ -149,7 +150,7 @@ function createFormFromJSON(data){
                                                         accept: 'image/png, image/jpeg',
                                                         id: key + key1 + key2 + key3 + key4 + key5 + key6
                                                     });
-                                                    subDiv.append(inputImage);
+                                                    $('#'+ key + key1 +  key2 + key3 + key4 + key5).append(inputImage);
                                                 }
                                                 else{
                                                     if (key6 == "FR" || key6 == "EN"){
@@ -158,7 +159,7 @@ function createFormFromJSON(data){
                                                             id: key + key1 + key2 + key4 + key5 + key6,
                                                             placeholder: key5 + key6
                                                         });
-                                                        subDiv.append(inputText);
+                                                        $('#'+ key + key1 +  key2 + key3 + key4 + key5).append(inputText);
                                                     }
                                                     else{
                                                         var result = getJSONElementByPath(key + key1 + key2 + key3 + key4 + key5 + key6);
@@ -168,7 +169,7 @@ function createFormFromJSON(data){
                                                                 type: 'text',
                                                                 placeholder: key6
                                                             });
-                                                            subDiv.append(inputText);
+                                                            $('#'+ key + key1 +  key2 + key3 + key4 + key5).append(inputText);
                                                         }
                                                         for (var key7 in data[key][key1][key2][key3][key4][key5][key6]){
                                                             var result = getJSONElementByPath(key + key1 + key2 + key3 + key4 + key5 + key6 + key7);
@@ -178,7 +179,7 @@ function createFormFromJSON(data){
                                                                     type: 'text',
                                                                     placeholder: key6 + key7
                                                                 });
-                                                                subDiv.append(inputText);
+                                                                $('#'+ key + key1 +  key2 + key3 + key4 + key5).append(inputText);
                                                             }
                                                             for (var key8 in data[key][key1][key2][key3][key4][key5][key6][key7]){
                                                                 if (key8 == "Image"){
@@ -262,19 +263,3 @@ function getJSONElementByPath(path){
 }
 
 createFormFromJSON(data);
-
-// export function printTypes(data) {
-//     data.forEach(element => {
-//       const listItem = $('<li>');
-//       const checkbox = $('<input>').attr({
-//         type: 'checkbox',
-//         id: element['nom'],
-//         name: element['nom'],
-//         value: element['id']
-//       });
-//       const label = $('<label>').attr('for', element['nom']).text(element['nom']);
-    
-//       listItem.append(checkbox, label);
-//       $('#type_list').append(listItem);
-//     });
-//   }
