@@ -8,12 +8,16 @@ queue_url = urlcourante.substring (urlcourante.lastIndexOf( "?" )+1 );
 // alert (' Queue URL : \n' + queue_url);
 var nomFichier = "../saves/Philippe/"+queue_url;
 let json = 0;
-$.getJSON("http://localhost/lock/saves/Philippe/template/" + queue_url,
+$.getJSON("http://localhost/lock/saves/Philippe/" + queue_url,
     function (data, textStatus, jqXHR) {
         json = data;
         createFormFromJSON(json);
     }
 );
+let HTML = 0;
+$.get('http://localhost/lock/saves/Philippe/', function(data) {
+    do_something_with(data)
+ });
 
 $.ajax({
     type: "GET",
@@ -317,13 +321,14 @@ function createFormFromJSON(data){
             console.log(pathToInfo);
             registerData(dataCopy, pathToInfo, valueOfElement.value);    
         });
+        createHTML();
     });
     btn.append('Sauver');
     div.append(btn);
     form.append(div);
 }
 
-test = 0
+// test = 0
 function registerData(object, path, value) {
     if (path.length == 1) {
         object[path[0]] = value;
