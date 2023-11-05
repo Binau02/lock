@@ -1,6 +1,8 @@
 data = {
   "General": {
-    "Title": ""
+    "Title": "",
+    "Text": "",
+    "Image": ""
   },
   "Unit": {
     "Identifier": 0,

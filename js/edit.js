@@ -240,26 +240,3 @@ function place(elem) {
   elem.style.top = '0px'
 }
 
-
-
-
-
-// const swappable = new Draggable.Swappable(
-// 	document.querySelectorAll('.editable'), {
-// 		draggable: '[swapItem]',
-// 		delay: 0,
-// 	}
-// )
-
-// swappable.on('drag:start', () => {
-// 	console.log('drag:start')
-// })
-// swappable.on('swappable:swapped', () => {
-// 	console.log('drag:swapped')
-// })
-// swappable.on('drag:stop', () => {
-// 	console.log('drag:stop')
-// })
-// swappable.on('drag:move', () => {
-// 	console.log('drag:move')
-// })
