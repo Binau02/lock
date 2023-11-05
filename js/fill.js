@@ -1,11 +1,22 @@
 var urlcourante = document.location.href; 
-alert (' URL : \n' +urlcourante);  
+// alert (' URL : \n' +urlcourante);  
 
 // Supprimons l'éventuel dernier slash de l'URL
 var urlcourante = urlcourante.replace(/\/$/, "");
 // Gardons dans la variable queue_url uniquement la portion derrière le dernier slash de urlcourante
 queue_url = urlcourante.substring (urlcourante.lastIndexOf( "?" )+1 );
-alert (' Queue URL : \n' + queue_url);
+// alert (' Queue URL : \n' + queue_url);
+var nomFichier = "../"+queue_url;
+
+var request = new XMLHttpRequest();
+request.open("GET", queue_url);
+request.responseType = "json";
+request.send();
+request.onload = function () {
+    var data = request.response;
+    data = JSON.parse(data);
+    createFormFromJSON(data);
+};
 
 function createFormFromJSON(data){
     const form = $("#mainForm");
@@ -365,8 +376,6 @@ function getJSONElementByPath(path){
     }
     return result;
 }
-
-createFormFromJSON(data);
 
 
 function getData(){
