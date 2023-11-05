@@ -313,7 +313,8 @@ function createFormFromJSON(data){
             let pathToInfo = getPathById(valueOfElement.id);
             console.log(valueOfElement.value);
             console.log(pathToInfo);
-            });
+            registerData(data, pathToInfo, valueOfElement.value);    
+        });
     });
     btn.append('Sauver');
     div.append(btn);
