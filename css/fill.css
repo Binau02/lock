@@ -14,7 +14,7 @@
     border-radius: 15px;
 } */
 
-#mainForm>div>div {
+#mainFormdiv {
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -30,7 +30,7 @@
     border-radius: 15px;
 }
 
-#content {
+#content>div {
     background-color: white;
     padding-bottom: 5em;
     min-height: 30em;
