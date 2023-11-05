@@ -6,17 +6,23 @@ var urlcourante = urlcourante.replace(/\/$/, "");
 // Gardons dans la variable queue_url uniquement la portion derrière le dernier slash de urlcourante
 queue_url = urlcourante.substring (urlcourante.lastIndexOf( "?" )+1 );
 // alert (' Queue URL : \n' + queue_url);
-var nomFichier = "../"+queue_url;
+var nomFichier = "../saves/Philippe/"+queue_url;
+let json = 0;
+$.getJSON("http://localhost/lock/saves/Philippe/" + queue_url,
+    function (data, textStatus, jqXHR) {
+        json = data;
+        createFormFromJSON(json);
+    }
+);
 
-var request = new XMLHttpRequest();
-request.open("GET", queue_url);
-request.responseType = "json";
-request.send();
-request.onload = function () {
-    var data = request.response;
-    data = JSON.parse(data);
-    createFormFromJSON(data);
-};
+// $.ajax({
+//     type: "GET",
+//     url: nomFichier
+// })
+// .done(function (data){
+//     console.log(data);
+//     createFormFromJSON(data);
+// });
 
 function createFormFromJSON(data){
     const form = $("#mainForm");
@@ -370,7 +376,7 @@ function getJSONElementByPath(path){
     }
     tabWord.push(path.substring(startIndex, path.length));
     // console.log(tabWord);
-    var result = data[tabWord[0]];
+    var result = json[tabWord[0]];
     for (let i = 1; i < tabWord.length; i++){
         result = result[tabWord[i]];
     }
