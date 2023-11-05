@@ -8,7 +8,7 @@ queue_url = urlcourante.substring (urlcourante.lastIndexOf( "?" )+1 );
 // alert (' Queue URL : \n' + queue_url);
 var nomFichier = "../saves/Philippe/"+queue_url;
 let json = 0;
-$.getJSON("http://localhost/lock/saves/Philippe/" + queue_url,
+$.getJSON("http://localhost/lock/saves/Philippe/template/" + queue_url,
     function (data, textStatus, jqXHR) {
         json = data;
         createFormFromJSON(json);
@@ -312,8 +312,8 @@ function createFormFromJSON(data){
         $.each(data2, function (indexInArray, valueOfElement) {
             let pathToInfo = getPathById(valueOfElement.id);
             console.log(valueOfElement.value);
-            // ICI POUR ECRIRE A L EMPLACEMENT VOULU DANS LE PDF
-        });
+            console.log(pathToInfo);
+            });
     });
     btn.append('Sauver');
     div.append(btn);
