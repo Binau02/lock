@@ -16,7 +16,8 @@ function createFormFromJSON(data){
                     const inputText = $('<input>').attr({
                         type: 'text',
                         id: key + key1,
-                        placeholder: key1
+                        placeholder: key1,
+                        name: key + key1
                     });
                     inputText.keydown(function (e) { 
                         console.log(e); 
@@ -28,7 +29,8 @@ function createFormFromJSON(data){
                         type: 'number',
                         min: 0,
                         id: key + key1,
-                        placeholder: key1
+                        placeholder: key1,
+                        name: key + key1
                     });
                     inputNum.keydown(function (e) { 
                         console.log(e);
@@ -271,6 +273,55 @@ function createFormFromJSON(data){
             }
         }
     }
+    const div = $('<div>').attr({
+        id: 'divBtn'
+    })
+    const btn = $('<button>').attr({
+        id: 'btnForm'
+
+    });
+    btn.click(function (e) { 
+        var data1 = document.getElementById('mainForm');
+        var data2 = data1.getElementsByTagName('input');
+        $.each(data2, function (indexInArray, valueOfElement) {
+            let pathToInfo = getPathById(valueOfElement.id);
+            console.log(valueOfElement.value);
+        });
+    });
+    btn.append('Sauver');
+    div.append(btn);
+    form.append(div);
+}
+
+function getPathById(id){
+    startIndex = 0;
+    endIndex = 0;
+    tabWord = [];
+
+    for (let i = 1; i < id.length; i++){
+        if (/[A-M]|[O-Q]|[S-Z]|[0-9]/.test(id[i])){
+            endIndex = i;
+            tabWord.push(id.substring(startIndex, endIndex));
+            startIndex = endIndex;
+        }    
+        else {
+            if (id[i] == 'N' && id[i-1] != 'E'){
+                endIndex = i;
+                tabWord.push(id.substring(startIndex, endIndex));
+                startIndex = endIndex;
+            }
+            if (id[i] == 'R' && id[i-1] != 'F'){
+                endIndex = i;
+                tabWord.push(id.substring(startIndex, endIndex));
+                startIndex = endIndex;
+            }
+        }    
+    }
+
+    tabWord.push(id.substring(startIndex, id.length));
+    // console.log(tabWord);
+
+    return tabWord;
 }
 
 function getJSONElementByPath(path){
@@ -306,3 +357,14 @@ function getJSONElementByPath(path){
 }
 
 createFormFromJSON(data);
+
+
+function getData(){
+    const form = $('#mainForm');
+
+    form.each(function () {
+        data[theFieldName] = theFieldValue;
+    });
+
+    console.log(data);
+}
