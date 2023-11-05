@@ -1,4 +1,5 @@
 <?php
+echo "coucou";
 if (!empty($_POST['data'])) {
   $data = $_POST['data'];
   var_dump($_POST);
