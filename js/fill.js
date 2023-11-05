@@ -14,12 +14,12 @@ $.getJSON("http://localhost/lock/saves/Philippe/" + queue_url,
         createFormFromJSON(json);
     }
 );
-let HTML = 0;
+let Html = 0;
 let filename = queue_url.substring(0, queue_url.length-5);
 console.log(filename)
 $.get('http://localhost/lock/saves/Philippe/', function(data) {
-    HTML = data;
-    // console.log(HTML)
+    Html = data;
+    // console.log(Html)
  });
 
 $.ajax({
@@ -324,7 +324,7 @@ function createFormFromJSON(data){
             console.log(pathToInfo);
             registerData(dataCopy, pathToInfo, valueOfElement.value);    
         });
-        createHTML();
+        createHtml();
     });
     btn.append('Sauver');
     div.append(btn);
@@ -416,9 +416,9 @@ function getData(){
     console.log(data);
 }
 
-function createHTML() {
+function createHtml() {
     content = document.getElementById("mainForm");
     content.innerHTML = ""
-    content.innerHTML = HTML
-    
+    content.innerHtml = Html
+
 }
