@@ -1,5 +1,5 @@
-function createForm(){
-    
+function createFormFromJSON(){
+    jqjs
 }
 
 export function printTypes(data) {
