@@ -14,7 +14,7 @@
     border-radius: 15px;
 } */
 
-#mainForm>div {
+#mainForm>div>div {
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -40,14 +40,14 @@
     flex-wrap: wrap;
 }
 
-#content>div {
+#content>div>div {
     width: 40vw;
     display: flex;
     align-items: stretch;
     align-content: stretch;
 }
 
-#content>div>div {
+#content>div>div>div {
     flex-grow: 1;
     min-height: 3em;
     border: solid 2px lightgray;
