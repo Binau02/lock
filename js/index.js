@@ -53,6 +53,7 @@ let i = document.querySelector('input').addEventListener('change', (e)=>{
     {             
         f.push(e.target.files[i].webkitRelativePath);
     }
+    console.log(f);
     printResults(f);
 })
 
@@ -63,43 +64,42 @@ function printResults(f){
     div = document.getElementById("existing-templates");
     if(f.length > 0){
         document.getElementById("info").style.display = "none";
-    }
-
-    for(let i = 0; i < f.length; i++){
-        let btn = document.createElement("BUTTON");
-        btn.setAttribute("type", "button");
-        btn.setAttribute("class", "button");
-        btn.innerHTML = f[i];
-        name = "pop-up"+i
-        btn.setAttribute("onclick", "show('"+name+"')");
-        h1 = document.createElement("h1")
-        h1.innerHTML = "Template "+i
-        let btn2 = document.createElement("BUTTON");
-        btn2.setAttribute("type", "button");
-        btn2.setAttribute("onclick", "window.location.href='edit.html?"+f[i]+"';");
-        btn2.innerHTML = "Editer le template";
-        let btn3 = document.createElement("BUTTON");
-        btn3.setAttribute("type", "button");
-        btn3.setAttribute("onclick", "window.location.href='fill.html?"+f[i]+"';");
-        btn3.innerHTML = "Remplir le formulaire associé au template";
-
-        a = document.createElement("a");
-        a.setAttribute("href", "#")
-        a.setAttribute("class", "close");
-        a.setAttribute("onclick", "hide('"+name+"')");
-        a.innerHTML = "&times;";
-
-        popup = document.createElement("DIV");
-        popup.setAttribute("class", "pop-up");
-        popup.setAttribute("id", "pop-up"+i);
-
-        popup.appendChild(h1);
-        popup.appendChild(btn2);
-        popup.appendChild(btn3);
-        popup.appendChild(a);
-
-        div.appendChild(btn);
-        div.appendChild(popup);        
+        for(let i = 0; i < f.length; i++){
+            let btn = document.createElement("BUTTON");
+            btn.setAttribute("type", "button");
+            btn.setAttribute("class", "button");
+            btn.innerHTML = f[i];
+            name = "pop-up"+i
+            btn.setAttribute("onclick", "show('"+name+"')");
+            h1 = document.createElement("h1")
+            h1.innerHTML = "Template "+i
+            let btn2 = document.createElement("BUTTON");
+            btn2.setAttribute("type", "button");
+            btn2.setAttribute("onclick", "window.location.href='edit.html?"+f[i]+"';");
+            btn2.innerHTML = "Editer le template";
+            let btn3 = document.createElement("BUTTON");
+            btn3.setAttribute("type", "button");
+            btn3.setAttribute("onclick", "window.location.href='fill.html?"+f[i]+"';");
+            btn3.innerHTML = "Remplir le formulaire associé au template";
+    
+            a = document.createElement("a");
+            a.setAttribute("href", "#")
+            a.setAttribute("class", "close");
+            a.setAttribute("onclick", "hide('"+name+"')");
+            a.innerHTML = "&times;";
+    
+            popup = document.createElement("DIV");
+            popup.setAttribute("class", "pop-up");
+            popup.setAttribute("id", "pop-up"+i);
+    
+            popup.appendChild(h1);
+            popup.appendChild(btn2);
+            popup.appendChild(btn3);
+            popup.appendChild(a);
+    
+            div.appendChild(btn);
+            div.appendChild(popup);        
+        }
     }
 }
 
