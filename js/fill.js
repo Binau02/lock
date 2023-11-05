@@ -19,7 +19,7 @@ let filename = queue_url.substring(0, queue_url.length-5);
 console.log(filename)
 $.get('http://localhost/lock/saves/Philippe/', function(data) {
     HTML = data;
-    console.log(HTML)
+    // console.log(HTML)
  });
 
 $.ajax({
@@ -414,4 +414,11 @@ function getData(){
     });
 
     console.log(data);
+}
+
+function createHTML() {
+    content = document.getElementById("mainForm");
+    content.innerHTML = ""
+    content.innerHTML = HTML
+    
 }
