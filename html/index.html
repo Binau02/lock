@@ -6,13 +6,20 @@
     <meta charset = "utf-8">
     <title>home</title>
 
-    <link href="feuillestyle.css" rel="stylesheet">
+    <link href="../css/index.css" rel="stylesheet">
   </head>
 
   <body>
     <div id="existing-templates">
       <h1>Templates existants</h1>
-      <button type="button">Template 1</button>
+      <button type="button" onclick="show('pop-up')">Template 1</button>
+      <div class="pop-up" id="pop-up">
+        <p>This is a pop-up!</p>
+        <a href="#" onclick="hide('pop-up')">Fermer</a>
+      </div>
+
+
+
       <button type="button">Template 2</button>
       <button type="button">Template 3</button>
       <!-- Quand boutton cliqué, pop-up avec edit? et fill? -->
@@ -21,5 +28,6 @@
       <h1>Créer un nouveau modèle</h1>
       <button type="button">Créer</button>
     </div>
+    <script src="../js/index.js"></script>
   </body>
 </html>
