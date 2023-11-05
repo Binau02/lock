@@ -10,45 +10,23 @@
   </head>
 
   <body>
-    <input type="file" webkitdirectory="" directory="">
+    <div class="title">
+      <h1 id="title">Designer de templates de fiches de cadenassage personnalisables</h1>
+    </div>
+    <div id="file">
+      <input type="file" webkitdirectory="" directory="">
+    </div>
     <div class="container">
       <div id="existing-templates">
         <h1>Templates existants</h1>
-        
-        <button type="button" onclick="show('pop-up1')" class="button">Template 1</button>
-        <div class="pop-up" id="pop-up1">
-          <h1>Template 1</h1>
-          <button type="button" onclick="window.location.href='edit.html';"> Editer le template</button>
-          <button type="button" onclick="window.location.href='fill.html';"> Remplir le formulaire associé au template</button>
-          <a href="#" class="close" onclick="hide('pop-up1')">&times;</a>
-        </div>
-  
-        <button type="button" onclick="show('pop-up2')" class="button">Template 2</button>
-        <div class="pop-up" id="pop-up2">
-          <h1>Template 2</h1>
-          <button type="button" onclick="window.location.href='edit.html';"> Editer le template</button>
-          <button type="button" onclick="window.location.href='fill.html';"> Remplir le formulaire associé au template</button>
-          <a href="#" class="close" onclick="hide('pop-up2')">&times;</a>
-        </div>
-      
-        <button type="button" onclick="show('pop-up3')" class="button">Template 3</button>
-        <div class="pop-up" id="pop-up3">
-          <h1>Template 3</h1>
-          <button type="button" onclick="window.location.href='edit.html';"> Editer le template</button>
-          <button type="button" onclick="window.location.href='fill.html';"> Remplir le formulaire associé au template</button>
-          <a href="#" class="close" onclick="hide('pop-up3')">&times;</a>
-        </div>
+        <p id="info" style="display: block;">Veuillez charger un dossier pour voir vos templates.</p>
       </div>
-  
       <div id="empty-template">
         <h1>Créer un nouveau modèle</h1>
         <button type="button" onclick="window.location.href='edit.html';" class="button">Créer</button>
       </div>
     </div>
     
-
-    
-
     
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
