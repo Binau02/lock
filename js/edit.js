@@ -188,6 +188,7 @@ function place(elem) {
   if (elem.classList.contains("to-add")) {
     elem.classList.remove("to-add")
     elem.classList.add("editable")
+    updateJson("add", elem)
   }
   switch (destination[0]) {
     case "content":
@@ -231,6 +232,7 @@ function place(elem) {
       break;
     case "delete":
       elem.remove();
+      updateJson("remove", elem)
       break;
   }
   if (oldParent.children.length == 0) {

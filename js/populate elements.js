@@ -1,17 +1,19 @@
-function populate(data, isArgument = false) {
+function populate(data, master) {
   if (typeof(data) == "object" && Array.isArray(data) == false) {
     for (let key in data) {
-      createBlock(key, data[key]);
+      createBlock(key, data[key], master);
       populate(data[key]);
     }
   }
 }
 
-function createBlock(name, args) {
+function createBlock(name, args, master) {
   // console.log(name);
   let div = document.createElement("div")
   div.className = "to-add"
   div.innerHTML = "Section " + name
+  div.setAttribute("master", master)
+  div.setAttribute("selection", name)
   createBlockArgs(div, args)
   content.append(div)
 }
@@ -118,8 +120,108 @@ function startDragToAdd(elem = null) {
   }
 }
 
+function updateJson(action, elem) {
+  // console.log(elem)
+  // console.log(elem.children)
+  if (action == "add") {
+    let master = elem.getAttribute("master")
+    let selection = elem.getAttribute("selection")
+    if (json[master][selection] == undefined) {
+      let attributes = elem.attributes
+      let hasArgs = false
+      for (let i = 0; i < attributes.length; i++) {
+        if (attributes[i].name.includes("arg_")) {
+          if (!hasArgs) {
+            json[master][selection] = {}
+          }
+          json[master][selection][capitalizeFirstLetter(attributes[i].name.substring(4))] = ""
+          hasArgs = true
+        }
+      }
+      if (elem.children.length > 0) {
+        for (let i = 0; i < elem.children.length; i++) {
+          // console.log(elem.children[i])
+          if (json[master][selection] == undefined) {
+            json[master][selection] = []
+          }
+          updateJsonPrecise(json[master][selection], elem.children[i])
+        }
+      }
+      else if (!hasArgs) {
+        json[master][selection] = ""
+      }
+    }
+  }
+  else {
+    let text = elem.innerText;
+    for (let i = 0; i < content.children.length; i++) {
+      // console.log("i", content.children[i])
+      for (let j = 0; j < content.children[i].children.length; j++) {
+        if (content.children[i].children[j].innerText == text) {
+          return
+        }
+      }
+    }
+    
+  }
+}
+
+function updateJsonPrecise(object, elem) {
+  // console.log("eflhf")
+  // console.log(elem)
+  // console.log(elem.children)
+  // console.log(object)
+  if (elem.getAttribute("args") == "Name") {
+    object["Name"] = {
+      "FR":"",
+      "EN":""
+    }
+  }
+  else {
+    object["Steps"] = structuredClone(data["Procedure"]["Categories"][0]["Steps"]);
+  }
+  // let attributes = elem.attributes
+  // let hasArgs = false
+  // for (let i = 0; i < attributes.length; i++) {
+  //   if (attributes[i].name.includes("arg")) {
+  //     if (!hasArgs) {
+  //       if (elem.children.length == 0 || elem.getAttribute("args") == "Device") {
+  //         object[elem.getAttribute("args")] = {}
+  //       }
+  //       else {
+  //         object[elem.getAttribute("args")] = []
+  //       }
+  //     }
+  //     object[elem.getAttribute("args")][attributes[i].name.substring(4)] = ""
+  //     // console.log(object)
+  //     hasArgs = true
+  //   }
+  // }
+  // if (elem.children.length != 0) {
+  //   for (let i = 0; i < elem.children.length; i++) {
+  //     if (elem.children[i].children.length == 0 && !hasArgs) {
+  //       object[elem.children[i].getAttribute("args")] = {}
+  //     }
+  //     else if (!hasArgs) {
+  //       object[elem.children[i].getAttribute("args")] = []
+  //     }
+  //     updateJsonPrecise(object[elem.children[i].getAttribute("args")], elem.children[i])
+  //   }
+  // }
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 
+
+let json = {
+  "General" : {},
+  "Unit" : {},
+  "Machine" : {},
+  "Procedure" : {}
+}
 
 let content = document.getElementById("elements")
 let key
@@ -129,6 +231,7 @@ for (let key in data) {
   div.className = "elements-title"
   div.innerHTML = key
   content.append(div)
-  populate(data[key]);
+  populate(data[key], key);
 }
 startDragToAdd();
+
