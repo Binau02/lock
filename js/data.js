@@ -134,8 +134,8 @@ data = {
                 "EN": "Huge Valve: Grease"
               },
               "Location": {
-                "FR": "Au dessus du réservoir de graisse de zébu",
-                "EN": "On top of the zebu grease tank"
+                "FR": "",
+                "EN": ""
               },
               "Energy": "Graisse",
               "Position": {

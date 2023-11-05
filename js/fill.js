@@ -18,6 +18,9 @@ function createFormFromJSON(data){
                         id: key + key1,
                         placeholder: key1
                     });
+                    inputText.keydown(function (e) { 
+                        console.log(e); 
+                    });
                     div.append(inputText);
                 }
                 if (result === 0){
@@ -26,6 +29,9 @@ function createFormFromJSON(data){
                         min: 0,
                         id: key + key1,
                         placeholder: key1
+                    });
+                    inputNum.keydown(function (e) { 
+                        console.log(e);
                     });
                     div.append(inputNum);
                 }
@@ -48,6 +54,9 @@ function createFormFromJSON(data){
                             id: key + key1,
                             placeholder: key1
                         });
+                        inputText.keydown(function (e) { 
+                            console.log(e);
+                        });
                         div.append(inputText);
                     }
                     if (result === 0){
@@ -56,6 +65,9 @@ function createFormFromJSON(data){
                             min: 0,
                             id: key + key1,
                             placeholder: key1
+                        });
+                        inputNum.keydown(function (e) { 
+                            console.log(e);
                         });
                         div.append(inputNum);
                     }
@@ -78,6 +90,9 @@ function createFormFromJSON(data){
                                         id: key + key2 + key3,
                                         placeholder: key2 + key3
                                     });
+                                    inputText.keydown(function (e) { 
+                                        console.log(e);
+                                    });
                                     div.append(inputText);
                                 }
                             }
@@ -88,6 +103,9 @@ function createFormFromJSON(data){
                                         accept: 'image/png, image/jpeg',
                                         id: key + key1 + "0" + key2
                                     });
+                                    inputImage.change(function (e) { 
+                                        console.log(e);
+                                    });
                                     div.append(inputImage);
                                 }
                                 else{
@@ -96,6 +114,9 @@ function createFormFromJSON(data){
                                         min: 0,
                                         id: key + key1 + "0" + key2,
                                         placeholder: key2
+                                    });
+                                    inputNum.keydown(function (e) { 
+                                        console.log(e);
                                     });
                                     div.append(inputNum);
                                 }
@@ -126,14 +147,15 @@ function createFormFromJSON(data){
                                             id: key + key1 + key2 + key3 + key4,
                                             placeholder: key3 + key4
                                         });
-                                        
+                                        inputText.keydown(function (e) { 
+                                            console.log(e);
+                                        });
                                         subDiv.append(inputText);
                                     }
                                 }
                                 if (key3 == "Steps"){
                                     for (var key4 in data[key][key1][key2][key3]){
                                         for (var key5 in data[key][key1][key2][key3][key4]){
-                                            console.log(key5)
                                             if (key5 == "Device"){
                                                 const subSubDiv = $('<div>').attr({
                                                     id: key + key1 +  key2 + key3 + key4 + key5
@@ -150,6 +172,9 @@ function createFormFromJSON(data){
                                                         accept: 'image/png, image/jpeg',
                                                         id: key + key1 + key2 + key3 + key4 + key5 + key6
                                                     });
+                                                    inputImage.change(function (e) { 
+                                                        console.log(e);
+                                                    });
                                                     $('#'+ key + key1 +  key2 + key3 + key4 + key5).append(inputImage);
                                                 }
                                                 else{
@@ -158,6 +183,9 @@ function createFormFromJSON(data){
                                                             type: 'text',
                                                             id: key + key1 + key2 + key4 + key5 + key6,
                                                             placeholder: key5 + key6
+                                                        });
+                                                        inputText.keydown(function (e) { 
+                                                            console.log(e);
                                                         });
                                                         $('#'+ key + key1 +  key2 + key3 + key4 + key5).append(inputText);
                                                     }
@@ -169,6 +197,9 @@ function createFormFromJSON(data){
                                                                 type: 'text',
                                                                 placeholder: key6
                                                             });
+                                                            inputText.keydown(function (e) { 
+                                                                console.log(e);
+                                                            });
                                                             $('#'+ key + key1 +  key2 + key3 + key4 + key5).append(inputText);
                                                         }
                                                         for (var key7 in data[key][key1][key2][key3][key4][key5][key6]){
@@ -179,6 +210,9 @@ function createFormFromJSON(data){
                                                                     type: 'text',
                                                                     placeholder: key6 + key7
                                                                 });
+                                                                inputText.keydown(function (e) { 
+                                                                    console.log(e);
+                                                                });
                                                                 $('#'+ key + key1 +  key2 + key3 + key4 + key5).append(inputText);
                                                             }
                                                             for (var key8 in data[key][key1][key2][key3][key4][key5][key6][key7]){
@@ -188,17 +222,23 @@ function createFormFromJSON(data){
                                                                         type: 'file',
                                                                         accept: 'image/png, image/jpeg'
                                                                     });
+                                                                    inputImage.change(function (e) { 
+                                                                        console.log(e);
+                                                                    });
                                                                     subDiv.append(inputImage);
                                                                 }
                                                                 else{
                                                                     if (key8 == "Quantity"){
-                                                                        const inputText = $('<input>').attr({
+                                                                        const inputNum = $('<input>').attr({
                                                                             type: 'number',
                                                                             min: 0,
                                                                             id: key + key1 + key2 + key3 + key4 + key5 + key6 + key7 + key8,
                                                                             placeholder: key8
                                                                         });
-                                                                        subDiv.append(inputText);                                                                    
+                                                                        inputNum.keydown(function (e) { 
+                                                                            console.log(e);
+                                                                        });
+                                                                        subDiv.append(inputNum);                                                                    
                                                                     }
                                                                     else{
                                                                         if (key8 == "Name"){
@@ -207,6 +247,9 @@ function createFormFromJSON(data){
                                                                                     type: 'text',
                                                                                     id: key + key1 + key2 + key3 + key4 + key5 + key6 + key7 + key8 + key9,
                                                                                     placeholder: key8 + key9
+                                                                                });
+                                                                                inputText.keydown(function (e) { 
+                                                                                    console.log(e);
                                                                                 });
                                                                                 subDiv.append(inputText);
                                                                             }
