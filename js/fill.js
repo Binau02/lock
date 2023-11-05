@@ -431,5 +431,11 @@ function createHtml() {
     content.id = "content"
     content.innerHTML = ""
     content.append(div);
-
+    for (let i = 0; i < content.children[0].children.length; i++) {
+        let elem = content.children[0].children[i]
+        for (let j = 0; j < elem.children.length; j++) {
+            let elem2 = elem.children[j]
+            console.log(elem2.getAttribute("path"))
+        }
+    }
 }
