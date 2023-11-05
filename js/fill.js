@@ -320,6 +320,14 @@ function createFormFromJSON(data){
     form.append(div);
 }
 
+function registerData(object, path, value) {
+    if (path.length == 1) {
+        object[path[0]] = value;
+        return;
+    }
+    registerData(object[path[0]], path.shift(), value);
+}
+
 function getPathById(id){
     startIndex = 0;
     endIndex = 0;

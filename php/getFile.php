@@ -4,7 +4,7 @@
 
 $fname = $_POST["name"];
 // $fname = $_GET["name"];
-// var_dump($_GET["name"]);
+var_dump($_GET["name"]);
 $data = file_get_contents("../saves/Philippe/template/" . $fname);
 
 
