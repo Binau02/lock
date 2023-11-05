@@ -17,7 +17,7 @@ $.getJSON("http://localhost/lock/saves/Philippe/" + queue_url,
 let Html = 0;
 let filename = queue_url.substring(0, queue_url.length-5);
 console.log(filename)
-$.get('http://localhost/lock/saves/Philippe/', function(data) {
+$.get('http://localhost/lock/saves/Philippe/' + filename, function(data) {
     Html = data;
     // console.log(Html)
  });
