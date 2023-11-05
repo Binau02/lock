@@ -15,14 +15,14 @@ $.getJSON("http://localhost/lock/saves/Philippe/template/" + queue_url,
     }
 );
 
-// $.ajax({
-//     type: "GET",
-//     url: nomFichier
-// })
-// .done(function (data){
-//     console.log(data);
-//     createFormFromJSON(data);
-// });
+$.ajax({
+    type: "GET",
+    url: nomFichier
+})
+.done(function (data){
+    console.log(data);
+    createFormFromJSON(data);
+});
 let dataCopy = 0;
 
 function createFormFromJSON(data){
