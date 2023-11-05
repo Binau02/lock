@@ -171,8 +171,48 @@ function createFormFromJSON(data){
                                                             subDiv.append(inputText);
                                                         }
                                                         for (var key7 in data[key][key1][key2][key3][key4][key5][key6]){
-                                                            var result = getJSONElementByPath(key + key2 + key3 + key4 + key5 + key6 + key7);
-                                                            console.log(result);
+                                                            var result = getJSONElementByPath(key + key1 + key2 + key3 + key4 + key5 + key6 + key7);
+                                                            if (result === ""){
+                                                                const inputText = $('<input>').attr({
+                                                                    id: key + key1 + key2 + key3 + key4 + key5 + key6 + key7,
+                                                                    type: 'text',
+                                                                    placeholder: key6 + key7
+                                                                });
+                                                                subDiv.append(inputText);
+                                                            }
+                                                            for (var key8 in data[key][key1][key2][key3][key4][key5][key6][key7]){
+                                                                if (key8 == "Image"){
+                                                                    const inputImage = $('<input>').attr({
+                                                                        id: key + key1 + key2 + key3 + key4 + key5 + key6 + key7 + key8,
+                                                                        type: 'file',
+                                                                        accept: 'image/png, image/jpeg'
+                                                                    });
+                                                                    subDiv.append(inputImage);
+                                                                }
+                                                                else{
+                                                                    if (key8 == "Quantity"){
+                                                                        const inputText = $('<input>').attr({
+                                                                            type: 'number',
+                                                                            min: 0,
+                                                                            id: key + key1 + key2 + key3 + key4 + key5 + key6 + key7 + key8,
+                                                                            placeholder: key8
+                                                                        });
+                                                                        subDiv.append(inputText);                                                                    
+                                                                    }
+                                                                    else{
+                                                                        if (key8 == "Name"){
+                                                                            for (var key9 in data[key][key1][key2][key3][key4][key5][key6][key7][key8]){
+                                                                                const inputText = $('<input>').attr({
+                                                                                    type: 'text',
+                                                                                    id: key + key1 + key2 + key3 + key4 + key5 + key6 + key7 + key8 + key9,
+                                                                                    placeholder: key8 + key9
+                                                                                });
+                                                                                subDiv.append(inputText);
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -194,14 +234,26 @@ function getJSONElementByPath(path){
     let endIndex = 0;
     let tabWord = [];
     for (let i = 1; i < path.length; i++) {
-        if (/[A-M]|[O-Q]|[S-Z]|[0-9]|(Na)/.test(path[i])){
+        if (/[A-M]|[O-Q]|[S-Z]|[0-9]/.test(path[i])){
             endIndex = i;
             tabWord.push(path.substring(startIndex, endIndex));
             startIndex = endIndex;
-        }        
+        }    
+        else {
+            if (path[i] == 'N' && path[i-1] != 'E'){
+                endIndex = i;
+                tabWord.push(path.substring(startIndex, endIndex));
+                startIndex = endIndex;
+            }
+            if (path[i] == 'R' && path[i-1] != 'F'){
+                endIndex = i;
+                tabWord.push(path.substring(startIndex, endIndex));
+                startIndex = endIndex;
+            }
+        }    
     }
     tabWord.push(path.substring(startIndex, path.length));
-    console.log(tabWord);
+    // console.log(tabWord);
     var result = data[tabWord[0]];
     for (let i = 1; i < tabWord.length; i++){
         result = result[tabWord[i]];

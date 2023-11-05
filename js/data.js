@@ -92,8 +92,8 @@ data = {
                 "EN": ""
               },
               "Position": {
-                "EN": "Disconnected",
-                "FR": "Débranché"
+                "EN": "",
+                "FR": ""
               },
               "Mechanism": [
                 {
