@@ -99,3 +99,9 @@ input[type=file]::file-selector-button {
     cursor: pointer;
     font-weight: 500;
 }
+
+#file {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
