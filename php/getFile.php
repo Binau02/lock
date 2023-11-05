@@ -4,6 +4,7 @@
 
 $fname = $_POST["name"];
 $fname = $_GET["name"];
+var_dump($_GET);
 $data = file_get_contents($fname);
 
 
