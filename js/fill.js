@@ -1,10 +1,18 @@
-function createFormFromJSON(){
-    $.ajax({
-        type: "GET",
-        url: "../js/data.js",
-        success: function (data) {
-            console.log(data);
-        }
+$.ajax({
+    type: "GET",
+    url: "../js/data.js"
+})
+.done(function(data){
+    createFormFromJSON(data);
+})
+.fail(function(){
+    alert("ERROR : AJAXT REQUEST FAILED");
+});
+
+function createFormFromJSON(data){
+    console.log(data);
+    data.forEach(element => {
+        console.log(element);
     });
 }
 
