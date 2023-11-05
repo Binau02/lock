@@ -266,6 +266,8 @@ function save() {
     }
   }
 
+  // console.log(content.innerHTML);
+
   var name=prompt("Enter the name of this template");
 
   var data = new FormData();

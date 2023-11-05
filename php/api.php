@@ -1,12 +1,14 @@
 <?php
-echo "coucou<br>";
-var_dump($_POST);
-if (!empty($_POST['data'])) {
-  $data = $_POST['data'];
-  // $fname = ; //generates random name
+// echo "coucou<br>";
+// var_dump($_POST);
 
-  // $file = fopen("upload/" . $fname, 'w'); //creates new file
-  // fwrite($file, $data);
-  // fclose($file);
-}
+$fname = $_POST["name"];
+$file = fopen("../saves/Philippe/template/" . $fname, 'w'); //creates new file
+fwrite($file, $_POST["file"]);
+fclose($file);
+
+$file = fopen("../saves/Philippe/template/" . $fname . ".json", 'w'); //creates new file
+fwrite($file, $_POST["json"]);
+fclose($file);
+
 ?>
