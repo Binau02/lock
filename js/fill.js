@@ -171,7 +171,8 @@ function createFormFromJSON(data){
                                                             subDiv.append(inputText);
                                                         }
                                                         for (var key7 in data[key][key1][key2][key3][key4][key5][key6]){
-                                                            console.log(key7);
+                                                            var result = getJSONElementByPath(key + key2 + key3 + key4 + key5 + key6 + key7);
+                                                            console.log(result);
                                                         }
                                                     }
                                                 }
@@ -193,14 +194,14 @@ function getJSONElementByPath(path){
     let endIndex = 0;
     let tabWord = [];
     for (let i = 1; i < path.length; i++) {
-        if (/[A-M]|[O-Q]|[S-Z]|[0-9]/.test(path[i])){
+        if (/[A-M]|[O-Q]|[S-Z]|[0-9]|(Na)/.test(path[i])){
             endIndex = i;
             tabWord.push(path.substring(startIndex, endIndex));
             startIndex = endIndex;
         }        
     }
     tabWord.push(path.substring(startIndex, path.length));
-    // console.log(tabWord);
+    console.log(tabWord);
     var result = data[tabWord[0]];
     for (let i = 1; i < tabWord.length; i++){
         result = result[tabWord[i]];

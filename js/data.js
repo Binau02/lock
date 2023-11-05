@@ -78,18 +78,18 @@ data = {
         "Steps": [
           {
             "Device": {
-              "Identifier": "Switch_600",
+              "Identifier": "",
               "Name": {
-                "FR": "Interrupteur Mural",
-                "EN": "Wall Switch"
+                "FR": "",
+                "EN": ""
               },
               "Location": {
-                "FR": "Mur des machines du fond",
-                "EN": "Back machine wall"
+                "FR": "",
+                "EN": ""
               },
               "Energy": {
-                "FR": "600 Volts",
-                "EN": "600 Volts"
+                "FR": "",
+                "EN": ""
               },
               "Position": {
                 "EN": "Disconnected",
