@@ -6,14 +6,20 @@ body {
 
 body > * {
   flex-grow: 1;
+  border: solid 1px gray;
 }
 
 #elements {
-  background-color: red;
+  /* background-color: red; */
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  
 }
 
 #global-content {
-  background-color: gray;
+  background-color: lightgray;
   flex-grow: 2.5;
   padding: 1em;
 }
@@ -24,7 +30,7 @@ body > * {
 }
 
 #style {
-  background-color: blue;
+  /* background-color: blue; */
 }
 
 #showing-rect {
@@ -46,6 +52,11 @@ body > * {
 
 .editable {
   flex-grow: 1;
+  min-height: 3em;
+  border: solid 2px lightgray;
+}
+
+.to-add {
   min-height: 3em;
   border: solid 2px lightgray;
 }

@@ -15,9 +15,18 @@
     top: 50%;
     margin-top: -100px;
     background: #FFF;
+    border: 2px solid #fff;
     text-align: center;
     z-index: 20;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius:7px;
+    border:1px solid #e5e5e5;
+}
+
+.pop-up h1 {
+    color: #6200ee;
+    font-weight: bold;
+    font-weight: 500;
 }
 
 .pop-up .close {
@@ -32,5 +41,60 @@
 }
 
 .pop-up .close:hover {
-    color: #06D85F;
+    color: #6200ee;
+}
+
+.button {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 3px;
+    padding: 0 16px;
+    border-radius: 4px;
+    color: #fff;
+    background: #6200ee;
+    line-height: 1.15;
+    font-size: 14px;
+    height: 36px;
+    word-spacing: 0px;
+    letter-spacing: .0892857143em;
+    text-decoration: none;
+    text-transform: uppercase;
+    min-width: 64px;
+    border: none;
+    text-align: center;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button:hover {
+    background: rgb(98, 0, 238);
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+}
+
+h1 { 
+    font-weight: 500;
+}
+
+input[type=file] {
+    width: 350px;
+    max-width: 100%;
+    color: #444;
+    padding: 5px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #555;
+    font-weight: 500;
+}
+
+input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #6200ee;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 500;
 }
