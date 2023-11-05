@@ -155,14 +155,14 @@ function updateJson(action, elem) {
   else {
     let text = elem.innerText;
     for (let i = 0; i < content.children.length; i++) {
-      // console.log("i", content.children[i])
       for (let j = 0; j < content.children[i].children.length; j++) {
-        if (content.children[i].children[j].innerText == text) {
+        // console.log(content.children[i].children[j])
+        if (content.children[i].children[j].innerText == text && content.children[i].children[j].getAttribute("master") == elem.getAttribute("master")) {
           return
         }
       }
     }
-    
+    delete json[elem.getAttribute("master")][elem.getAttribute("selection")]
   }
 }
 

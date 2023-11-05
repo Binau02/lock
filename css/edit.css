@@ -2,11 +2,12 @@ body {
   display: flex;
   align-items: stretch;
   align-content: stretch;
+  max-height: calc(100vh - 16px);
 }
 
 body > * {
   flex-grow: 1;
-  border: solid 1px gray;
+  /* border: solid 1px gray; */
 }
 
 #elements {
@@ -15,7 +16,8 @@ body > * {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #global-content {
@@ -27,6 +29,7 @@ body > * {
 #content {
   background-color: white;
   padding-bottom: 5em;
+  min-height: 30em;
 }
 
 #style {
@@ -59,4 +62,9 @@ body > * {
 .to-add {
   min-height: 3em;
   border: solid 2px lightgray;
+}
+
+.elements-title {
+  font-size: 1.8em;
+  margin: 0.2em;
 }
