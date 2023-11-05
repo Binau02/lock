@@ -442,4 +442,5 @@ function createHtml() {
             elem2.innerHTML = dataCopy[path[0]][path[1]]
         }
     }
+    print();
 }
