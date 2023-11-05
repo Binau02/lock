@@ -4,7 +4,7 @@ alert (' URL : \n' +urlcourante);
 // Supprimons l'éventuel dernier slash de l'URL
 var urlcourante = urlcourante.replace(/\/$/, "");
 // Gardons dans la variable queue_url uniquement la portion derrière le dernier slash de urlcourante
-queue_url = urlcourante.substring (urlcourante.lastIndexOf( "/" )+1 );
+queue_url = urlcourante.substring (urlcourante.lastIndexOf( "?" )+1 );
 alert (' Queue URL : \n' + queue_url);
 
 function createFormFromJSON(data){
