@@ -255,3 +255,24 @@ $("#elements").scroll( function(evt) {
         document.getElementById("elements").scrollLeft -= 40;
     }
 });
+
+function save() {
+  for (let i = 0; i < content.children.length; i++) {
+    for (let j = 0; j < content.children[i].children.length; j++) {
+      let elem = content.children[i].children[j]
+      while(elem.attributes.length > 0) {
+        elem.removeAttribute(elem.attributes[0].name);
+      }
+    }
+  }
+
+  var name=prompt("Enter the name of this template");
+
+  var data = new FormData();
+  data.append("file" , content.innerHTML);
+  data.append("json" , JSON.stringify(json));
+  data.append("name" , name);
+  var xhr = (window.XMLHttpRequest) ? new XMLHttpRequest() : new activeXObject("Microsoft.XMLHTTP");
+  xhr.open( 'post', 'http://localhost:127001/lock/php/api.php', true );
+  xhr.send(data);
+}
