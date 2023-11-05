@@ -24,6 +24,9 @@ body > * {
   background-color: rgb(233, 233, 233);
   flex-grow: 2.5;
   padding: 1em;
+  max-height: fit-content;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #content {
@@ -67,4 +70,12 @@ body > * {
 .elements-title {
   font-size: 1.8em;
   margin: 0.2em;
+}
+
+#save {
+  margin-top: 1em;
+  background-color: lightgreen;
+  width: 10em;
+  height: 4em;
+  border-radius: 1em;
 }
