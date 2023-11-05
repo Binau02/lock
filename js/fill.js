@@ -428,6 +428,7 @@ function createHtml() {
     content = document.getElementById("mainForm");
     div = createElementFromHTML(Html)
     // console.log(div);
+    content.id = ""
     content.innerHTML = ""
     content.append(div);
 
