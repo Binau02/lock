@@ -1,3 +1,12 @@
+var urlcourante = document.location.href; 
+alert (' URL : \n' +urlcourante);  
+
+// Supprimons l'éventuel dernier slash de l'URL
+var urlcourante = urlcourante.replace(/\/$/, "");
+// Gardons dans la variable queue_url uniquement la portion derrière le dernier slash de urlcourante
+queue_url = urlcourante.substring (urlcourante.lastIndexOf( "/" )+1 );
+alert (' Queue URL : \n' + queueurl);
+
 function createFormFromJSON(data){
     const form = $("#mainForm");
     
@@ -286,6 +295,7 @@ function createFormFromJSON(data){
         $.each(data2, function (indexInArray, valueOfElement) {
             let pathToInfo = getPathById(valueOfElement.id);
             console.log(valueOfElement.value);
+            // ICI POUR ECRIRE A L EMPLACEMENT VOULU DANS LE PDF
         });
     });
     btn.append('Sauver');
