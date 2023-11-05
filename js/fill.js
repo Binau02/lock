@@ -435,6 +435,7 @@ function createHtml() {
         let elem = content.children[0].children[i]
         for (let j = 0; j < elem.children.length; j++) {
             let elem2 = elem.children[j]
+            console.log(elem2.getAttribute("path"))
             console.log(elem2.getAttribute("path").split("/[,\/]/"))
         }
     }
