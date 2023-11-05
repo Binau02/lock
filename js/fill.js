@@ -320,6 +320,7 @@ function createFormFromJSON(data){
         dataCopy = structuredClone(data);
         $.each(data2, function (indexInArray, valueOfElement) {
             let pathToInfo = getPathById(valueOfElement.id);
+            console.log("p")
             console.log(valueOfElement.value);
             console.log(pathToInfo);
             registerData(dataCopy, pathToInfo, valueOfElement.value);    
