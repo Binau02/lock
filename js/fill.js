@@ -418,8 +418,8 @@ function getData(){
 
 function createHtml() {
     content = document.getElementById("mainForm");
-    content.innerHTML = ""
-    console.log(Html)
+    // content.innerHTML = ""
+    // console.log(Html)
     content.innerHtml = Html
 
 }
