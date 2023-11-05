@@ -40,6 +40,7 @@
 }
 
 #content>div {
+    width: 40vw;
     display: flex;
     align-items: stretch;
     align-content: stretch;
