@@ -435,8 +435,10 @@ function createHtml() {
         let elem = content.children[0].children[i]
         for (let j = 0; j < elem.children.length; j++) {
             let elem2 = elem.children[j]
-            console.log(elem2.getAttribute("path"))
-            console.log(elem2.getAttribute("path").split(/[,\/]/))
+            // console.log(elem2.getAttribute("path"))
+            path = elem2.getAttribute("path").split(/[,\/]/)
+            console.log(dataCopy[path[0]][path[1]]);
+            elem2.innerHTML = dataCopy[path[0]][path[1]]
         }
     }
 }
