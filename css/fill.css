@@ -14,7 +14,7 @@
     border-radius: 15px;
 } */
 
-#mainForm > div {
+#mainForm>div {
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -28,4 +28,23 @@
     align-items: center;
     background-color: lightgray;
     border-radius: 15px;
+}
+
+#content {
+    background-color: white;
+    padding-bottom: 5em;
+    min-height: 30em;
+    max-width: 40vw;
+}
+
+#content>div {
+    display: flex;
+    align-items: stretch;
+    align-content: stretch;
+}
+
+#content>div>div {
+    flex-grow: 1;
+    min-height: 3em;
+    border: solid 2px lightgray;
 }
