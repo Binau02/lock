@@ -53,6 +53,7 @@ let i = document.querySelector('input').addEventListener('change', (e)=>{
     {             
         f.push(e.target.files[i].webkitRelativePath);
     }
+    console.log(f);
     printResults(f);
 })
 
