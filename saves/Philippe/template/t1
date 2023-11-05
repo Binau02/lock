@@ -1,16 +1,16 @@
 <div class="line">
-  <div>Section Title</div>
+  <div selection="Title">Section Title</div>
 </div>
 <div class="line">
-  <div>Section Identifier</div>
-  <div>Section Name</div>
+  <div selection="Title">Section Identifier</div>
+  <div selection="Name">Section Name</div>
 </div>
 <div class="line">
-  <div>Section Identifier</div>
+  <div selection="Title">Section Identifier</div>
 </div>
 <div class="line">
-  <div>Section Name</div>
+  <div selection="Name">Section Name</div>
 </div>
 <div class="line">
-  <div>Section Location</div>
+  <div selection="Title">Section Location</div>
 </div>
