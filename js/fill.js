@@ -421,7 +421,7 @@ function createElementFromHTML(htmlString) {
     div.innerHTML = htmlString.trim();
   
     // Change this to div.childNodes to support multiple top-level nodes.
-    return div.firstChild;
+    return div;
   }
 
 function createHtml() {
